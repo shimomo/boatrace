@@ -1,75 +1,75 @@
 {
-    "name": "shimomo/boatrace",
-    "description": "Boatrace",
-    "license": "MIT",
-    "type": "library",
-    "authors": [
-        {
-            "name": "shimomo",
-            "email": "yuichi@shimomo.net"
-        }
-    ],
-    "require": {
-        "php": "^8.4",
-        "nesbot/carbon": "^3.8.4",
-        "php-di/php-di": "^7.0",
-        "symfony/browser-kit": "^8.0",
-        "symfony/console": "^8.0",
-        "symfony/css-selector": "^8.0",
-        "symfony/dom-crawler": "^8.0",
-        "symfony/http-client": "^8.0"
-    },
-    "require-dev": {
-        "ergebnis/composer-normalize": "^2.52",
-        "laravel/pint": "^1.27",
-        "phpunit/phpunit": "^13.2",
-        "vimeo/psalm": "^6.0"
-    },
-    "replace": {
-        "boatrace/core": "self.version",
-        "boatrace/scraper": "self.version",
-        "boatrace/scraper-boatcast": "self.version",
-        "boatrace/support": "self.version",
-        "boatrace/types": "self.version"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "packages/*",
-            "canonical": false,
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Boatrace\\BoatcastScraper\\": "packages/scraper-boatcast/src/",
-            "Boatrace\\Core\\": "packages/core/src/",
-            "Boatrace\\Scraper\\": "packages/scraper/src/",
-            "Boatrace\\Support\\": "packages/support/src/",
-            "Boatrace\\Types\\": "packages/types/src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Boatrace\\BoatcastScraper\\Tests\\": "packages/scraper-boatcast/tests/",
-            "Boatrace\\Core\\Tests\\": "packages/core/tests/",
-            "Boatrace\\Scraper\\Tests\\": "packages/scraper/tests/",
-            "Boatrace\\Support\\Tests\\": "packages/support/tests/",
-            "Boatrace\\Types\\Tests\\": "packages/types/tests/"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true
-        }
-    },
-    "scripts": {
-        "analyse": "psalm",
-        "fix": "pint",
-        "lint": "pint --test",
-        "test": "phpunit"
-    },
-    "$schema": "https://getcomposer.org/schema.json"
+  "name": "shimomo/boatrace",
+  "description": "Boatrace",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "shimomo",
+      "email": "yuichi@shimomo.net"
+    }
+  ],
+  "require": {
+    "php": "^8.4",
+    "nesbot/carbon": "^3.8.4",
+    "php-di/php-di": "^7.0",
+    "symfony/browser-kit": "^8.0",
+    "symfony/console": "^8.0",
+    "symfony/css-selector": "^8.0",
+    "symfony/dom-crawler": "^8.0",
+    "symfony/http-client": "^8.0"
+  },
+  "require-dev": {
+    "ergebnis/composer-normalize": "^2.52",
+    "laravel/pint": "^1.27",
+    "phpunit/phpunit": "^13.2",
+    "vimeo/psalm": "^6.0"
+  },
+  "replace": {
+    "boatrace/core": "self.version",
+    "boatrace/scraper": "self.version",
+    "boatrace/scraper-boatcast": "self.version",
+    "boatrace/support": "self.version",
+    "boatrace/types": "self.version"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "packages/*",
+      "canonical": false,
+      "options": {
+        "symlink": true
+      }
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Boatrace\\BoatcastScraper\\": "packages/scraper-boatcast/src/",
+      "Boatrace\\Core\\": "packages/core/src/",
+      "Boatrace\\Scraper\\": "packages/scraper/src/",
+      "Boatrace\\Support\\": "packages/support/src/",
+      "Boatrace\\Types\\": "packages/types/src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Boatrace\\BoatcastScraper\\Tests\\": "packages/scraper-boatcast/tests/",
+      "Boatrace\\Core\\Tests\\": "packages/core/tests/",
+      "Boatrace\\Scraper\\Tests\\": "packages/scraper/tests/",
+      "Boatrace\\Support\\Tests\\": "packages/support/tests/",
+      "Boatrace\\Types\\Tests\\": "packages/types/tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "ergebnis/composer-normalize": true
+    }
+  },
+  "scripts": {
+    "analyse": "psalm",
+    "fix": "pint",
+    "lint": "pint --test",
+    "test": "phpunit"
+  },
+  "$schema": "https://getcomposer.org/schema.json"
 }

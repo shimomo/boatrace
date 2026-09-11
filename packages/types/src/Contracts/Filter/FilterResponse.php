@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Boatrace\Types\Contracts\Filter;
+
+/**
+ * @author shimomo
+ */
+interface FilterResponse extends Filter
+{
+    /**
+     * @return ?string
+     */
+    public function getValue(): ?string;
+}

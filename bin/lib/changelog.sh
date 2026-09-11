@@ -16,10 +16,14 @@ set -eu
 changelog_collect_commits() {
   last_tag="$1"
 
+  # log.showSignature が有効だと --pretty の出力に GPG の検証メッセージが
+  # 混ざり、そのまま CHANGELOG.md に書き込まれる（初回リリースで実際に混入した）。
+  # 件名だけを取りたいので明示的に抑止する。
+
   if [ -n "$last_tag" ]; then
-    git log "${last_tag}..HEAD" --pretty='- %s'
+    git log --no-show-signature "${last_tag}..HEAD" --pretty='- %s'
   else
-    git log --pretty='- %s'
+    git log --no-show-signature --pretty='- %s'
   fi
 }
 

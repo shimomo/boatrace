@@ -66,7 +66,9 @@ package_release_publish() {
   # subtree split は毎回ルート側の現在の履歴から再構成するため、
   # 過去のpush内容と完全一致しないことがある。
   # よって force push が前提の運用になっている。
-  git push "$remote" "$commit:main" --force
+  # push 元が生の SHA なので、宛先は refs/heads/ まで書く。"main" だけだと
+  # git はリモートの既存 main から補完しようとし、空のリポジトリでは失敗する。
+  git push "$remote" "$commit:refs/heads/main" --force
 
   # --- 5. バージョンタグを独立リポジトリへ push -----------------------
   git push "$remote" "refs/tags/${tmp_tag}:refs/tags/${version}"

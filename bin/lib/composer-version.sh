@@ -42,7 +42,7 @@ composer_version_update_package_requires() {
     f="$dir/composer.json"
     [ -f "$f" ] || continue
 
-    jq --arg v "$constraint" '
+    jq --indent 4 --arg v "$constraint" '
       (.require // {}) |= with_entries(
         if (.key | startswith("boatrace/")) then .value = $v else . end
       )
@@ -72,7 +72,7 @@ composer_version_update_branch_alias() {
     f="$dir/composer.json"
     [ -f "$f" ] || continue
 
-    jq --arg v "$alias" \
+    jq --indent 4 --arg v "$alias" \
       '.extra["branch-alias"]["dev-main"] = $v' \
       "$f" > "$f.tmp"
     mv "$f.tmp" "$f"
@@ -94,11 +94,15 @@ composer_version_update_branch_alias() {
 #   2. composer update でロックファイルを同期
 #   3. composer normalize でフォーマットを整える
 #
+# インデントは 4 スペースに固定する。jq は既存のインデントを保たず
+# 既定の 2 スペースで書き出し、composer normalize は既存のインデントを
+# 検出して踏襲するので、指定が無いと 0.1.0 のときのように 2 へ潰れる。
+#
 # これにより symplify/monorepo-builder への依存を完全に断てる。
 composer_version_sync_monorepo() {
   composer_merge_packages_into_root
   composer update
-  composer normalize
+  composer normalize --indent-size=4 --indent-style=space
 }
 
 # composer_version_release VERSION

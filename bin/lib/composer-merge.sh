@@ -46,7 +46,7 @@ composer_merge_packages_into_root() {
     done | jq -s '.'
   )
 
-  jq --argjson packages "$package_jsons" '
+  jq --indent 4 --argjson packages "$package_jsons" '
     # 複数オブジェクトを「後勝ち」でマージするヘルパー
     def merge_all: reduce .[] as $o ({}; . * $o);
 
